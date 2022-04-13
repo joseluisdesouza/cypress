@@ -2,7 +2,7 @@
 
 describe("Ongs", () => {
   // skip - para o teste
-  it("devem poder realizar um cadastro", () => {
+  it.skip("devem poder realizar um cadastro", () => {
     // cy.visit - vai até a pagina a ser testada
     cy.visit("http://localhost:3000/register");
     // cy.get - busca um elemento
@@ -50,18 +50,8 @@ describe("Ongs", () => {
     //   Cypress.env("createdOngId", response.body.id);
     // });
 
-    const createOngId = Cypress.env('createdOngId');
-
-    cy.log(createOngId);
-    
     cy.visit('http://localhost:3000/');
-    cy.get('input').type(createOngId);
+    cy.get('input').type(Cypress.env('createdOngId'));
     cy.get('.button').click();
   });
 });
-
-//city: "Guaiba"
-//email: "gato@gmail.com"
-//name: "Gatos feliz"
-//uf: "rs"
-//whatsapp: "51989898989"
